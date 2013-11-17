@@ -304,8 +304,8 @@ var searchAutoComplete = (function() {
 						oldsearch = word
 						word = escape(word)
 						document.getElementById('keywordlayer').style.display = 'block';				
-						//getkeywordsframe = callIframe(getkeywordsframe, "noegleramme", "http://bwfoto.dk/php/GetKeywordsFrame.php?start=" + escape(word) + "&sprog=d&niveau=1&getterfunction=searchAutoComplete.getKey");
-						getkeywordsframe = callIframe(getkeywordsframe, "noegleramme", "/ajax.htm?");
+						getkeywordsframe = callIframe(getkeywordsframe, "noegleramme", "http://bwfoto.dk/php/GetKeywordsFrame.php?start=" + escape(word) + "&sprog=d&niveau=1&getterfunction=searchAutoComplete.getKey");
+						//getkeywordsframe = callIframe(getkeywordsframe, "noegleramme", "/ajax.htm?");
 						if(!getkeywordsframe){
 							alert("fejl ved hetning af keywords")
 						}
