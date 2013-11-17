@@ -1,0 +1,12 @@
+[
+	{
+		"id": 1, 
+		"name": "foerste lightbox", 
+		"num_images": 2
+	},
+	{
+		"id": 3, 
+		"name": "anden lightbox", 
+		"num_images": 4
+	}
+]

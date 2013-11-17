@@ -1,0 +1,32 @@
+
+
+		<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+		<HTML>
+		<HEAD>
+		<TITLE>GetKeywordsFrame</TITLE>
+		<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+		</HEAD>
+		<BODY onLoad="putKey()">
+		<SCRIPT LANGUAGE="JavaScript1.3">	
+			var keyArray = new Array(10);
+			keyArray[0] = "Danaus"
+			keyArray[1] = "Danemar"
+			keyArray[2] = "Dania"
+			keyArray[3] = "danica"
+			keyArray[4] = "Danisco"
+			keyArray[5] = "Danmarks"
+			keyArray[6] = "Danmeat"
+			keyArray[7] = "Dannebrog"
+			keyArray[8] = "Dannebrogsgalle"
+			keyArray[9] = "Dannevirke"
+			function putKey(){
+				window.parent.searchAutoComplete.getKey(keyArray)
+			}
+		
+			function getArray(){
+				return keyArray;
+			}
+		</SCRIPT>
+		</BODY>
+		</HTML>
+		

@@ -1,0 +1,26 @@
+.gradient(
+	@startcolor: #fff,
+	@endcolor: #ccc
+) {
+	
+	background: @startcolor;
+	background: -moz-linear-gradient(top, @startcolor 0%, @endcolor 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@startcolor), color-stop(100%,@endcolor)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, @startcolor 0%, @endcolor 100%); /* Chrome10+,Safari5.1+ */
+	background: -ms-linear-gradient(top, @startcolor 0%, @endcolor 100%); /* IE10+ */
+	background: linear-gradient(to bottom, @startcolor 0%,@endcolor 100%); /* W3C */
+}
+
+.transition( @param ) {
+	-webkit-transition: @param;
+	-moz-transition: @param;
+	-ms-transition: @param;
+	transition: @param;
+
+}
+
+.border-radius(@radius: 5px) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+}

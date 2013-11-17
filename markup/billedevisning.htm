@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js ie ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie ie8"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
+        
+        <meta name="description" content="">
+        <link href='http://fonts.googleapis.com/css?family=Lato:100,300,700,300italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/css/style.min.css">
+
+        <style>
+        	body {
+	        	background: #fff;
+	        	font: 13px/1.3em 'Lato', Tahoma, sans-serif;
+	        	margin: 0;
+        	}
+        	
+        	ul {
+	        	list-style: none;
+	        	margin: 0;
+	        	padding: 0;
+        	}
+        	
+        	h3 {
+	        	font-size: 1.2em;
+	        	font-weight: 700;
+	        	margin-bottom: 5px;
+        	}
+        	
+        	.image-box {
+	        	float: left;
+	        	padding: 10px 20px 0 0;
+	        	border-right: 1px solid #ccc;
+        	}
+        	
+        	.meta-info {
+	        	float: left;
+	        	width: 150px;
+	        	padding: 10px 0 0 20px; 
+        	}
+        	
+        	.meta-imagenumber {
+	        	font-size: 28px;
+	        	font-weight: 300;
+	        	margin-bottom: 15px;
+        	}
+        	
+        	.meta-keywords,
+        	.meta-categories {
+	        	font-size: 0.9em;
+	        	color: #666;
+        	}
+        	
+        	.meta-categories li { margin-bottom: 5px; }
+
+            .buttons {
+                clear: both;
+                border-top: 1px solid #ccc;
+                padding-top: 10px;
+                margin-top: 20px;
+            }
+        	
+        	a { color: #360; }
+        	
+        	h3 {
+        		padding-top: 10px;
+	        	border-top: 1px solid #ccc;
+        	}
+        	
+        
+        </style>
+        
+    </head>
+    <body>
+        	
+    	<div class="overlay">
+    		<div class="image-box">
+    			<img src="http://bwfoto.dk/billeder/images/99120.jpg">
+    		</div>
+    		
+    		<div class="meta-info">
+    			<div class="meta-imagenumber">
+    				99120
+    			</div>
+    			
+    			<div class="meta-format">
+    				<span><b>Original:</b> Digital 24,5 MP (6048 x 4032 pixel)</span>
+    			</div>
+    			
+    			<div class="meta-keywords">
+    				<h3>Keywords</h3>
+    				<ul>
+	    				<li><a href="javascript: soeg('FindBilleder.php?metode=bykeyid&search=1262&offset=0')">agerland</a></li>
+	    				<li><a href="javascript: soeg('FindBilleder.php?metode=bykeyid&search=2789&offset=0')">rapsmark</a></li>
+	    				<li><a href="javascript: soeg('FindBilleder.php?metode=bykeyid&search=6132&offset=0')">Ravning</a></li>
+	    				<li><a href="javascript: soeg('FindBilleder.php?metode=bykeyid&search=11550&offset=0')">raps</a></li>
+	    				<li><a href="javascript: soeg('FindBilleder.php?metode=bykeyid&search=19992&offset=0')">åbne land</a></li>
+	    				<li><a href="javascript: soeg('FindBilleder.php?metode=bykeyid&search=19993&offset=0')">landbrugsland</a></li>
+	    				<li>maj</li>
+    				</ul>
+    			</div>
+    			
+    			<div class="meta-categories">
+    				<h3>Kategorier</h3>
+    				<ul>
+	    				<li><a href="javascript: soeg('FindBilleder.php?metode=bykatid&search=1129&offset=0')">AGERLAND, ÅBNE LAND - Jylland Agerland med blomstrende rapsmarker (179)</a></li>
+	    				<li><a href="javascript: soeg('FindBilleder.php?metode=bykatid&search=300&offset=0')">AFGRØDER MARKER Raps (174)</a></li>
+    				</ul>
+    			</div>
+
+                 <div class="buttons">
+
+                    <a href="#" class="icon-button download">download</a>
+                    <a href="#" class="icon-button lightbox" data-action="lightbox" data-billedid="99120">Føj til Lightbox</a>
+
+                </div>
+    		</div>
+
+           
+    	</div> <!-- end #main -->
+    	
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="js/plugins-comb.js"></script>
+        <script src="js/app.js"></script>
+        
+        <script>
+        $(document).ready(function() {
+        
+        	var querySting = window.location.search;
+        	querySting = querySting.replace("?","");
+        	
+        	var imageUrl = "http://bwfoto.dk/billeder/images/"+querySting+".jpg";
+	        
+	        $(".image-box img").attr("src",imageUrl);
+	        $(".meta-imagenumber").text(querySting);
+	        
+        });
+        </script>
+
+    </body>
+</html>
