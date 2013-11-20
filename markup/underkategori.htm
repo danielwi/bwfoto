@@ -183,7 +183,7 @@
 	    				
 	    				<input type="search" placeholder="Søg" class="billedSeach search">
 	    				
-	    				<a href="#">Index</a>, <a href="#">Hjælp</a>
+	    				<a href="#">Til kategorierne</a>, <a href="#">Hjælp</a>
 	    			</div>
 	    			
 	    			<div class="box login">
@@ -192,6 +192,7 @@
 	    				<input type="text" placeholder="Brugernavn" class="login">
 	    				<input type="password" placeholder="Password" class="password">
 	    				
+	    				<a href="#" class="signup gray btn">opret</a>
 	    				<input type="submit" class="loginSubmit submit btn" value="login">
 	    			</div>
 	    		
@@ -214,37 +215,11 @@
     	</div>
 
     	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		<script src="js/plugins-comb.js"></script>
-		<script src="js/app.js"></script
-                
-        <script>
-        $(document).ready(function() {
-        
-        var menuTimer;
-	        
-	        
-	        $("#topNav .nav > .hasChildren").bind("mouseover", function() {
-		        
-		        clearTimeout(menuTimer);
-		        $(this).addClass("hover");
-		        
-	        }).bind("mouseout", function() {
-	        	var t = $(this);
-	        	menuTimer = setTimeout(function() {
-		        	t.removeClass("hover");
-	        	}, 500);
-	        });
-	        
-	        /*
-	        $("#topNav .nav").dcMegaMenu({
-		        rowItems: '1',
-		        speed: 'fast',
-		        effect: 'fade'
-	        });
-	        */
-	        
-        });
-        </script>
+		<script src="/js/plugins-comb.min.js"></script>
+		<script src="/js/min/functions/search.min.js"></script>
+		<script src="/js/min/functions/lightbox.min.js"></script>
+		<script src="/js/min/functions/base.min.js"></script>
+
 
     </body>
 </html>

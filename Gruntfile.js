@@ -14,7 +14,7 @@ module.exports = function(grunt) {
 						expand: true,
 						cwd: 'assets/scripts/',
 						src: ['**/*.js','!**/plugins/*.js','!**/*.min.js'],
-						dest: 'markup/js/',
+						dest: 'markup/js/min/',
 						ext: '.min.js'
 					}
 				]
@@ -91,7 +91,7 @@ module.exports = function(grunt) {
 			},
 			jsConcat: {
 				files: ['assets/scripts/**/*.js'],
-				tasks: ['concat']
+				tasks: ['concat','uglify:minfy']
 			},
 			imgOptimize: {
 				files: ['assets/images/**/*.png','images/**/*.jpg','images/**/*.jpeg'],

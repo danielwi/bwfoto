@@ -28,8 +28,6 @@ var base = (function() {
 				_mother.toggleClass("open");
 				return false;
 			});
-
-
 	        
 	        $("#topNav .nav > .hasChildren").bind("mouseover", function() {
 		        
@@ -44,48 +42,6 @@ var base = (function() {
 		        	t.removeClass("hover");
 	        	}, 500);
 	        });
-
-
-	        /*
-			$(".imgBox .actions a").click(function() {
-				var _this = $(this);
-				var _mother = _this.parent().parent();
-				var _type = _this.attr("data-action");
-
-				if(_type == "lightbox" && _this.text() == "b") {
-					
-					_this.text("x");
-					var data = "<div class='lightboxSelector'></div>";
-					_mother.append(data);
-
-				} else if(_type == "lightbox" && _this.text() == "x") {
-					
-					_this.text("b");
-					$(".lightboxSelector",_mother).remove();
-				}
-
-				$(".lightboxSelector a",_mother).click(function() {
-					_mother.addClass(_type);
-					
-					var _target = $(".box.lightbox table tr:first-child td:nth-child(2)");
-					var oldVal = parseInt(_target.text(),10);
-					
-					_target.text(oldVal+1);
-					_target.parent().addClass("heightligt");
-					
-					$(".lightboxSelector",_mother).remove();
-					_this.text("b");
-					
-					setTimeout(function() {
-						_target.parent().removeClass("heightligt");
-					}, 1000);
-					
-					return false;
-				});
-
-				return false;
-			});
-			*/
 
 			$(document).scroll(function() {
 				

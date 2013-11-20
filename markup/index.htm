@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<!--[if IE 7]>         <html class="no-js ie ie7"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js ie ie8"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html class="no-js"> 
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -194,7 +192,7 @@
 	    					<div id="keywordlayer" class="search-autocomplete"></div>
 	    				</form>
 	    				
-	    				<a href="#">Index</a>, <a href="#">Hjælp</a>
+	    				<a href="index.htm">Til Kategorier</a>, <a href="#">Hjælp</a>
 	    			</div>
 	    			
 	    			<div class="box login">
@@ -204,7 +202,7 @@
 	    				<input type="password" placeholder="Password" class="password">
 	    				
 	    				
-	    				<a href="#" class="signup btn">opret</a>
+	    				<a href="#" class="signup gray btn">opret</a>
 	    				<input type="submit" class="loginSubmit submit btn" value="login">
 
 	    			</div>
@@ -228,28 +226,11 @@
     	</div>
 
     	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		<script src="js/plugins-comb.js"></script>
-		<script src="js/app.js"></script>
-                
-        <script>
-        $(document).ready(function() {
-        
-       		var menuTimer;
-	        
-	        $("#topNav .nav > .hasChildren").bind("mouseover", function() {
-		        
-		        clearTimeout(menuTimer);
-		        $(this).addClass("hover");
-		        
-	        }).bind("mouseout", function() {
-	        	var t = $(this);
-	        	menuTimer = setTimeout(function() {
-		        	t.removeClass("hover");
-	        	}, 500);
-	        });
-	        
-        });
-        </script>
+		<script src="/js/plugins-comb.min.js"></script>
+		<script src="/js/min/functions/search.min.js"></script>
+		<script src="/js/min/functions/lightbox.min.js"></script>
+		<script src="/js/min/functions/base.min.js"></script>
+
 
     </body>
 </html>

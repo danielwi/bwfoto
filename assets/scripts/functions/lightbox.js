@@ -31,8 +31,21 @@ var lightbox = (function() {
 			}
 
 		},
-		changeName: function() {
-
+		changeName: function(name,listId) {
+			var scope = this;
+			$.ajax({
+				url: '/dan/lightboxe/'+listId+'/?name='+name,
+				//url: 'ajax.htm',
+				type: 'POST'
+			}).done(function() {
+				var msg = $('<div class="msg">Lightboxens navn er nu gemt</div>');
+				$('#lightboxName').after(msg);
+				setTimeout(function() {
+					msg.fadeOut(500,function(){ $(this).remove(); });
+				},2000)
+				scope.updateList();
+			});
+			
 		},
 		getList: function(box,imageId) {
 			var scope = this;
@@ -98,6 +111,18 @@ var lightbox = (function() {
 
 				return false;
 				
+			});
+
+			$("#lightboxName").blur(function() {
+				var elm = $(this);
+				var name = elm.val();
+				var lightbox = elm.data('lightboxid');
+				scope.changeName(name,lightbox);
+			});
+
+			$("#lightboxName").keypress(function(e) {
+				if(e.which == 13) { $(this).blur(); } 
+				return false;
 			});
 
 			$(".buttons a[data-action='lightbox']").click(function() {
