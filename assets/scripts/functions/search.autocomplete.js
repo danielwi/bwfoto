@@ -12,8 +12,8 @@ var searchAutoComplete = (function() {
 			document.getElementById('search').value = word+""
 		},
 		checkKey: function(keyEvent) {
+			var scope = this;
 			var code;
-			var scope = this
 			if (!keyEvent){
 				var keyEvent = event;
 			}
@@ -212,8 +212,8 @@ var searchAutoComplete = (function() {
 				//console.log('focus true');
 			});
 
-			searchBox.keyup(function() {
-				scope.checkKey();
+			searchBox.keyup(function(e) {
+				scope.checkKey(e);
 				//console.log('keyup');
 			});
 
