@@ -71,7 +71,7 @@ var lightbox = (function() {
 		updateList: function(id) {
 			var container = $('#lightboxList');
 			if(id) {
-				var row = $('tr[data-lightbox='+id+']');
+				var row = $('tr[data-lightboxid='+id+']');
 				var numCell = $('td:nth-child(2)',row);
 				var currVal = parseInt(numCell.text(),10);
 
@@ -80,6 +80,7 @@ var lightbox = (function() {
 				setTimeout(function() {
 					row.removeClass('highlight');
 				}, 1000);
+			
 			} else {
 
 				$.getJSON('/dan/lightboxe/',function(data) {
@@ -87,10 +88,10 @@ var lightbox = (function() {
 					$('tbody > tr',container).remove();
 					$.each(data,function(i,item) {
 						var htmlString;
-						htmlString = '<tr data-data-lightbox="'+item.id+'">';
+						htmlString = '<tr data-data-lightboxid="'+item.id+'">';
 						htmlString += '<td>'+item.name+'</td>';
 						htmlString += '<td>'+item.num_images+'</td>';
-						htmlString += '<td><a href="lightbox.htm" class="show icon">g</a></td>';
+						htmlString += '<td><a href="/dan/lightboxe/'+item.id+'-'+item.name+'" class="show icon">g</a></td>';
 						htmlString += "</tr>";
 						$('tbody',container).append(htmlString);
 					});
@@ -102,7 +103,6 @@ var lightbox = (function() {
 			var scope = this;
 			$.ajax({
 				url: '/dan/lightboxe/'+listId+'/?name='+name,
-				//url: 'ajax.htm',
 				type: 'POST'
 			}).done(function() {
 				var msg = $('<div class="msg">Lightboxens navn er nu gemt</div>');
@@ -118,13 +118,14 @@ var lightbox = (function() {
 			var scope = this;
 			$.getJSON('/dan/lightboxe/',function(data) {
 				var container = $("<div class='lightboxSelector' />");
+				var htmlString = "<div>"
 				$.each(data,function(i,item) {
-					var htmlString;
-					htmlString = '<a href="#" data-lightboxid="'+item.id+'">';
+					htmlString += '<a href="#" data-lightboxid="'+item.id+'">';
 					htmlString += item.name;
 					htmlString += "</a>";
-					container.append(htmlString);
 				});
+				htmlString += '</div>';
+				container.append(htmlString);
 				box.append(container);
 
 				$('a',container).click(function() {
@@ -188,8 +189,7 @@ var lightbox = (function() {
 			});
 
 			$("#lightboxName").keypress(function(e) {
-				if(e.which == 13) { $(this).blur(); } 
-				return false;
+				if(e.which == 13) { $(this).blur(); return false; } 
 			});
 
 			$(".buttons a[data-action='lightbox']").click(function() {
