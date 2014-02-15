@@ -107,7 +107,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
 
-
 	grunt.registerTask('default', ['watch']);
 	grunt.registerTask('startup', ['rename:renameFolders','clean:dummyfiles']);
 	grunt.registerTask('dev', ['uglify','less','copy:toDev']);

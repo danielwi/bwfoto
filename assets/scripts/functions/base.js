@@ -1,10 +1,14 @@
 var base = (function() {
 
 	var menuTimer;
+	var keywordBox;
 
 	return {
 
 		init: function() {
+
+			var scope = this;
+
 			$(".fancybox-button").fancybox({
 				width: 860,
 				height: 600
@@ -27,6 +31,39 @@ var base = (function() {
 				$(".lvl2",_mother).slideToggle(200);
 				_mother.toggleClass("open");
 				return false;
+			});
+
+			$('.imgBox img').bind('mouseover', function(e) {
+				var imgId = $(this).data('id');
+				var htmlList = "<strong>Info/Keywords</strong><br/>";
+
+				keywordBox = $('<div />');
+				keywordBox.addClass('keywordbox');
+				keywordBox.css({
+					top: e.pageY+15,
+					left: e.pageX+15
+				});
+			
+				//$.getJSON('/keyword.json',function(data) {
+				$.getJSON('http://bwfoto.dk/dan/arkivbilleder/'+imgId+'/keywords.json',function(data) {
+					$.each(data,function(i,item) {
+						htmlList += item;
+						htmlList += "<br />";
+					});
+
+					keywordBox.append(htmlList);
+					keywordBox.appendTo('body');
+				});
+
+			}).bind('mousemove',function(e) {
+
+				keywordBox.css({
+					top: e.pageY+15,
+					left: e.pageX+15
+				});
+				
+			}).bind('mouseout',function(e) {
+				keywordBox.remove();
 			});
 	        
 	        $("#topNav .nav > .hasChildren").bind("mouseover", function() {

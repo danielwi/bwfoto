@@ -12,6 +12,7 @@ body {
 	background: #eee url("/img/background.jpg");	
 }
 
+strong { font-weight: 700; }
 
 .wrapper {
 	width: 960px;
@@ -105,7 +106,18 @@ hr {
 		border-color: #360;
 		.gradient(#82b357,#669900);
 		
-		&:before { content: "D"; }	
+		&:before { content: "D"; }
+
+		&.loading {
+			&:before {
+				content: "";
+				width: 10px;
+				height: 14px;
+				background-image: url('/img/loader.gif');
+				background-position: center center;
+				background-repeat: no-repeat;
+			}
+		}
 	}
 	
 	&.email,
@@ -573,6 +585,19 @@ hr {
 			color: #777;
 		}
 	}
+}
+
+.keywordbox {
+	background-color: rgba(255,255,255,0.9);
+	border-radius: 5px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	box-shadow: 0 0 5px rgba(0,0,0,0.3);
+	font-size: 11px;
+	line-height: 1.3em;
+
+	position: absolute;
+	z-index: 90;
 }
 
 .lightboxSelector {
