@@ -11,7 +11,10 @@ var base = (function() {
 
 			$(".fancybox-button").fancybox({
 				width: 860,
-				height: 600
+				height: 600,
+				beforeClose: function() {
+					lightbox.updateList();
+				}
 			});
 
 			$('select').uniform();
@@ -34,8 +37,11 @@ var base = (function() {
 			});
 
 			$('.imgBox img').bind('mouseover', function(e) {
-				var imgId = $(this).data('id');
+				var elm = $(this);
+				var imgId = elm.data('id');
 				var htmlList = "<strong>Info/Keywords</strong><br/>";
+
+				elm.addClass('hover');
 
 				keywordBox = $('<div />');
 				keywordBox.addClass('keywordbox');
@@ -51,8 +57,12 @@ var base = (function() {
 						htmlList += "<br />";
 					});
 
-					keywordBox.append(htmlList);
-					keywordBox.appendTo('body');
+					if(elm.hasClass('hover')) {
+						keywordBox.append(htmlList);
+						keywordBox.appendTo('body');
+					} else {
+						keywordBox = null;
+					}
 				});
 
 			}).bind('mousemove',function(e) {
@@ -63,6 +73,7 @@ var base = (function() {
 				});
 				
 			}).bind('mouseout',function(e) {
+				$(this).removeClass('hover');
 				keywordBox.remove();
 			});
 	        

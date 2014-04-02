@@ -80,10 +80,24 @@ module.exports = function(grunt) {
 				]
 			}
 		},
+		connect: {
+			server: {
+				options: {
+					port: 8080,
+					hostname: '*',
+					base: 'markup',
+					open: 'http://dwiklund.local:8080',
+					livereload: true
+				}
+			}
+		},
 		watch: {
 			less: {
 				files: ['assets/less/**/*.less'],
-				tasks: ['less:toMarkup']
+				tasks: ['less:toMarkup'],
+				options: {
+					livereload: true
+				}
 			},
 			jsHint: {
 				files: ['assets/scripts/**/*.js', '!assets/scripts/**/*.min.js', '!assets/scripts/**/plugins/*.js'],
@@ -105,9 +119,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
 
-	grunt.registerTask('default', ['watch']);
+	grunt.registerTask('default', ['connect','watch']);
 	grunt.registerTask('startup', ['rename:renameFolders','clean:dummyfiles']);
-	grunt.registerTask('dev', ['uglify','less','copy:toDev']);
+	grunt.registerTask('dev', ['uglify','less']);
 };
