@@ -19,6 +19,12 @@ strong { font-weight: 700; }
 	margin: 0 auto;
 }
 
+.cf {
+	display: block;
+	height: 1px;
+	clear: both;
+}
+
 a {
 	color: #360;
 	.transition(color 300ms ease);
@@ -164,6 +170,24 @@ hr {
 	background: #333 url("/img/topBackground.jpg") center top repeat-x;
 	
 	.wrapper { position: relative; }
+
+	.lang-switch {
+		position: absolute;
+		top: 16px; right: 0;
+		z-index: 6;
+		background-color: rgba(0,0,0,0.4);
+
+		font-size: 9px;
+		color: #ccc;
+		padding: 4px;
+		border-bottom-left-radius: 6px;
+
+		span { display: inline-block; padding: 0 5px; }
+		span:first-child { border-right: 1px solid rgba(255,255,255,0.3); }
+
+		a { color: #999; text-decoration: none; }
+		a:hover { color: #fff; }
+	}
 }
 
 #slider { 
@@ -179,7 +203,7 @@ hr {
 	margin: 0 -1px;
 	background: #000;
 	
-	.slides > li {-webkit-backface-visibility: hidden;}
+	.slides > li { -webkit-backface-visibility: hidden; }
 	.slides img {width: 100%; display: block;}
 	.slides > li:first-child { display: block; opacity: 1; }
 }
@@ -374,7 +398,7 @@ hr {
 	
 	h1 {
 		color: #4c8b15;
-		font-size: 30px;
+		font-size: 40px;
 		font-weight: 100;
 		margin-bottom: 1em;
 	}
@@ -385,7 +409,7 @@ hr {
 	}
 	
 	
-	h2 { font-size: 110%; }
+	h2 { font-size: 130%; }
 	h3 { font-size: 85%; }
 	
 	h2, h3, h4, h5 {
@@ -483,7 +507,7 @@ hr {
 		}
 		li {
 			a { padding: 1px 15px; color: #aece93; &:hover { color: #fff; } }
-			span { color: #777; }	
+			span { color: #999; }	
 		}
 	}
 }
@@ -784,6 +808,7 @@ hr {
 		}
 
 		.btn.signup { float: left; }
+		.btn.small { float: none; clear: both; }
 	}
 	
 	table {
@@ -834,7 +859,7 @@ hr {
 
 	.lightboxListWrapper {
 		max-height: 300px;
-		overflow: scroll;
+		overflow: auto;
 	}
 }
 
@@ -958,6 +983,11 @@ input.btn {
 		&:hover {
 			background: #eee;
 		}
+	}
+
+	&.small {
+		font-size: 10px;
+		padding: 3px 8px;
 	}
 	
 }

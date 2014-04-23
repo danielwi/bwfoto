@@ -62,6 +62,7 @@ var base = (function() {
 						keywordBox.appendTo('body');
 					} else {
 						keywordBox = null;
+						htmlList = null;
 					}
 				});
 

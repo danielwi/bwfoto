@@ -6,6 +6,7 @@ var searchAutoComplete = (function() {
 	var word="";
 	var getkeywordsframe;
 	var oldsearch = ""
+	var lang;
 
 	return {
 		fillSearchBox: function(ord) {
@@ -63,7 +64,7 @@ var searchAutoComplete = (function() {
 						oldsearch = word
 						word = escape(word)
 						document.getElementById('keywordlayer').style.display = 'block';				
-						getkeywordsframe = callIframe(getkeywordsframe, "noegleramme", "http://bwfoto.dk/php/GetKeywordsFrame.php?start=" + escape(word) + "&sprog=d&niveau=1&getterfunction=searchAutoComplete.getKey");
+						getkeywordsframe = callIframe(getkeywordsframe, "noegleramme", "http://bwfoto.dk/php/GetKeywordsFrame.php?start=" + escape(word) + "&sprog="+lang+"&niveau=1&getterfunction=searchAutoComplete.getKey");
 						//getkeywordsframe = callIframe(getkeywordsframe, "noegleramme", "/ajax.htm?");
 						if(!getkeywordsframe){
 							alert("fejl ved hetning af keywords")
@@ -207,6 +208,13 @@ var searchAutoComplete = (function() {
 		init: function() {
 			var scope = this;
 			var searchBox = $("#search");
+			
+			if(window.location.href.indexOf("/eng/") > -1) {
+				lang = "u";
+			} else {
+				lang = "d";
+			}
+
 			searchBox.focus(function() {
 				searchHasFocus = true;
 				//console.log('focus true');
