@@ -12,6 +12,7 @@ var base = (function() {
 			$(".fancybox-button").fancybox({
 				width: 860,
 				height: 600,
+				fitWidth: true,
 				beforeClose: function() {
 					lightbox.updateList();
 				}
