@@ -22,12 +22,12 @@ var base = (function() {
 
 			$("#slider").flexslider({
 				selector : ".slides > li",
-				slideshowSpeed: 8000,
-				animationSpeed: 2000,
+				slideshowSpeed: 5000,
+				animationSpeed: 1500,
 				randomize: true,
 				controlNav: false,
 				directionNav: false,
-				pausePlay: true 
+				pausePlay: false 
 			});
 
 			$(".sub-cat-lists .hasChildren > a").click(function() {

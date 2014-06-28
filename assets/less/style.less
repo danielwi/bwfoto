@@ -409,11 +409,25 @@ hr {
 	}
 	
 	
-	h2 { font-size: 130%; }
-	h3 { font-size: 85%; }
+	h2 { font-size: 140%; }
+	h3 { font-size: 100%; }
 	
 	h2, h3, h4, h5 {
 		margin-bottom: 0.4em;
+	}
+
+	em { font-style: italic; }
+
+	ol {
+		counter-reset:section;
+		padding-left: 2em;
+		li { counter-increment:section; position: relative; margin-bottom: 0.5em; }
+		li:before {
+			content: counter(section) ":";
+			position: absolute;
+			left: -2em;
+			color: #4c8b15;
+		}
 	}
 	
 	img {
@@ -949,9 +963,21 @@ table {
 		
 	}
 	
-	thead { font-weight: 700; color: #666; text-shadow: 0 1px 0 #eee; line-height: 20px; }
+	thead { font-weight: 700; color: #666; line-height: 20px; }
 	th,td { text-align: left; }
 	
+}
+
+.content {
+	table {
+		margin-bottom: 30px;
+		thead {
+			th { background-color: #a9c88d; padding: 3px; color: #2d4c11; font-size: 16px; }
+		}
+		tbody {
+			th { font-weight: bold; }
+		}
+	}
 }
 
 /* INPUT STYLES */
