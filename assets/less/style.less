@@ -416,7 +416,7 @@ hr {
 		margin-bottom: 0.4em;
 	}
 
-	em { font-style: italic; }
+	em, i { font-style: italic; }
 
 	ol {
 		counter-reset:section;
@@ -486,6 +486,13 @@ hr {
 	li { font-size: 12px; line-height: 1.5em; position: relative; }
 	li span { padding-left: 5px; font-size: 10px; color: #999; font-weight: 400;}
 	> li:hover { background-color: #eff3eb; }
+
+	&.extra {
+		margin-top: 30px;
+		clear: both;
+
+		li span { display: none; }
+	}
 	
 	.hasChildren:after {
 		content: "";
@@ -673,6 +680,10 @@ hr {
 
 	position: absolute;
 	z-index: 90;
+
+	em {
+		font-style: italic;
+	}
 }
 
 .lightboxSelector {
@@ -1054,6 +1065,10 @@ input.btn {
 	}
 	
 }
+
+/* MODAL STYLES */
+
+.meta-info { padding: 10px 0 80px 20px; }
 
 @import "_uniform.less";
 
