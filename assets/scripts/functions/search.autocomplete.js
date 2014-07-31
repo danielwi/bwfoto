@@ -112,7 +112,7 @@ var searchAutoComplete = (function() {
 			html += "<ul>";
 			for(var i=0; i<keyarray.length; i++) {
 				var word = keyarray[i];
-				html += "<li"+((selectedkey == i)?" class='active' ":"")+" onClick='document.getElementById('search').value='" + word.replace(/'/, "\\'") + "'; document.searchform.submit();'>";
+				html += "<li"+((selectedkey == i)?" class='active' ":"")+" onClick=\"document.getElementById('search').value='" + word.replace(/'/, "\\'") + "'; document.getElementById('searchform').submit();\">";
 				html += word;
 				html += "</li>";
 			}

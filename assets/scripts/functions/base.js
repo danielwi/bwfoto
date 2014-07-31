@@ -105,6 +105,23 @@ var base = (function() {
 				}
 
 			});
+
+			if(!Modernizr.input.placeholder) {
+			    $("input[placeholder]").each(function() {
+			        var placeholder = $(this).attr("placeholder");
+
+			        $(this).val(placeholder).focus(function() {
+			            if($(this).val() == placeholder) {
+			                $(this).val("")
+			            }
+			        }).blur(function() {
+			            if($(this).val() == "") {
+			                $(this).val(placeholder)
+			            }
+			        });
+			    });
+			}
+			
 		}
 	};
 })();

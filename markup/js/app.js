@@ -105,6 +105,23 @@ var base = (function() {
 				}
 
 			});
+
+			if(!Modernizr.input.placeholder) {
+			    $("input[placeholder]").each(function() {
+			        var placeholder = $(this).attr("placeholder");
+
+			        $(this).val(placeholder).focus(function() {
+			            if($(this).val() == placeholder) {
+			                $(this).val("")
+			            }
+			        }).blur(function() {
+			            if($(this).val() == "") {
+			                $(this).val(placeholder)
+			            }
+			        });
+			    });
+			}
+			
 		}
 	};
 })();
@@ -384,7 +401,7 @@ var searchAutoComplete = (function() {
 			html += "<ul>";
 			for(var i=0; i<keyarray.length; i++) {
 				var word = keyarray[i];
-				html += "<li"+((selectedkey == i)?" class='active' ":"")+" onClick='document.getElementById('search').value='" + word.replace(/'/, "\\'") + "'; document.searchform.submit();'>";
+				html += "<li"+((selectedkey == i)?" class='active' ":"")+" onClick=\"document.getElementById('search').value='" + word.replace(/'/, "\\'") + "'; document.getElementById('searchform').submit();\">";
 				html += word;
 				html += "</li>";
 			}
