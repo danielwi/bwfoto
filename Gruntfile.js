@@ -1,8 +1,8 @@
 module.exports = function(grunt) {
-	
+
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
-		
+
 		uglify: {
 			toMarkup: {
 				src: 'assets/scripts/plugins/*.js',
@@ -86,7 +86,7 @@ module.exports = function(grunt) {
 					port: 8080,
 					hostname: '*',
 					base: 'markup',
-					open: 'http://dwiklund.local:8080',
+					open: 'http://localhost:8080',
 					livereload: true
 				}
 			}

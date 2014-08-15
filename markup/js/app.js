@@ -27,7 +27,7 @@ var base = (function() {
 				randomize: true,
 				controlNav: false,
 				directionNav: false,
-				pausePlay: false 
+				pausePlay: false
 			});
 
 			$(".sub-cat-lists .hasChildren > a").click(function() {
@@ -50,7 +50,7 @@ var base = (function() {
 					top: e.pageY+15,
 					left: e.pageX+15
 				});
-			
+
 				//$.getJSON('/keyword.json',function(data) {
 				$.getJSON('http://bwfoto.dk/dan/arkivbilleder/'+imgId+'/keywords.json',function(data) {
 					$.each(data,function(i,item) {
@@ -73,19 +73,19 @@ var base = (function() {
 					top: e.pageY+15,
 					left: e.pageX+15
 				});
-				
+
 			}).bind('mouseout',function(e) {
 				$(this).removeClass('hover');
 				keywordBox.remove();
 			});
-	        
+
 	        $("#topNav .nav > .hasChildren").bind("mouseover", function() {
-		        
+
 	        	$("#topNav .nav .hover").removeClass('hover');
 
 		        clearTimeout(menuTimer);
 		        $(this).addClass("hover");
-		        
+
 	        }).bind("mouseout", function() {
 	        	var t = $(this);
 	        	menuTimer = setTimeout(function() {
@@ -93,8 +93,18 @@ var base = (function() {
 	        	}, 500);
 	        });
 
+			if($('table.price-switch').length) {
+
+				$('#priceSwitcher').change(function() {
+					var curency = $(this).val();
+					console.log(curency);
+					var curencyClass = 'show-'+curency;
+					$('table.price-switch').removeClass('show-euro').removeClass('show-dollar').addClass(curencyClass);
+				});
+			}
+
 			$(document).scroll(function() {
-				
+
 				var _doc = $(document);
 				var scrollPos = _doc.scrollTop();
 
@@ -121,7 +131,7 @@ var base = (function() {
 			        });
 			    });
 			}
-			
+
 		}
 	};
 })();
@@ -132,6 +142,7 @@ $(document).ready(function() {
 	searchAutoComplete.init();
 	lightbox.init();
 });
+
 var lightbox = (function() {
 
 	return {
