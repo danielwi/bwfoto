@@ -97,7 +97,6 @@ var base = (function() {
 
 				$('#priceSwitcher').change(function() {
 					var curency = $(this).val();
-					console.log(curency);
 					var curencyClass = 'show-'+curency;
 					$('table.price-switch').removeClass('show-euro').removeClass('show-dollar').addClass(curencyClass);
 				});
