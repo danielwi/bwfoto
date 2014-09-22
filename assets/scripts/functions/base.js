@@ -117,17 +117,22 @@ var base = (function() {
 
 			if(!Modernizr.input.placeholder) {
 			    $("input[placeholder]").each(function() {
+					var currentValue = $(this).val();
 			        var placeholder = $(this).attr("placeholder");
 
-			        $(this).val(placeholder).focus(function() {
-			            if($(this).val() == placeholder) {
-			                $(this).val("")
-			            }
-			        }).blur(function() {
-			            if($(this).val() == "") {
-			                $(this).val(placeholder)
-			            }
-			        });
+					if(currentValue == "") {
+
+						$(this).val(placeholder).focus(function() {
+							if($(this).val() == placeholder) {
+								$(this).val("")
+							}
+						}).blur(function() {
+							if($(this).val() == "") {
+								$(this).val(placeholder)
+							}
+						});
+
+					}
 			    });
 			}
 

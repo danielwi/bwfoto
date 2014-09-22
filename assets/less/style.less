@@ -462,6 +462,8 @@ hr {
 		padding: 5px;
 		border: 1px solid #ddd;
 		margin-bottom: 5px;
+		max-width: 100%;
+		height: auto;
 
 	}
 
@@ -797,14 +799,18 @@ hr {
 .lightbox-name {
 	border: none;
 	background: transparent;
-	padding: 0;
+	padding: 5px 10px;
 	color: #4c8b15;
 	font-size: 30px;
 	font-weight: 100;
 	margin-bottom: 1em;
 
+	box-shadow: 0 0 3px 1px #ccc;
+	-moz-box-shadow:  0 0 3px 1px #ccc;
+
 	&:focus {
 		box-shadow: 0 0 3px 1px fade(#4c8b15,50%);
+		-moz-box-shadow: 0 0 3px 1px fade(#4c8b15,50%);
 		border: none;
 	}
 }
@@ -972,19 +978,6 @@ hr {
 				color: #693;
 			}
 		}
-
-		&.price-switch .price-euro,
-		&.price-switch .price-dollar {
-			display: none;
-		}
-
-		&.price-switch.show-euro .price-euro { display: block; }
-		&.price-switch.show-dollar .price-dollar { display: block; }
-
-		&.price-switch {
-			.price-euro:after { content: "\20AC"; }
-			.price-dollar:before { content: "\0024"; }
-		}
 	}
 
 	.lightboxList {
@@ -1049,6 +1042,19 @@ table {
 
 	thead { font-weight: 700; color: #666; line-height: 20px; }
 	th,td { text-align: left; }
+
+	&.price-switch .price-euro,
+	&.price-switch .price-dollar {
+		display: none;
+	}
+
+	&.price-switch.show-euro .price-euro { display: block; }
+	&.price-switch.show-dollar .price-dollar { display: block; }
+
+	&.price-switch {
+		.price-euro:after { content: "\20AC"; }
+		.price-dollar:before { content: "\0024"; }
+	}
 
 }
 

@@ -13,7 +13,7 @@ var lightbox = (function() {
 				setTimeout(function() {
 					row.removeClass('highlight');
 				}, 1000);
-			
+
 			} else {
 
 				$.getJSON('/dan/lightboxe/',function(data) {
@@ -24,7 +24,7 @@ var lightbox = (function() {
 						htmlString = '<tr data-data-lightboxid="'+item.id+'">';
 						htmlString += '<td>'+item.name+'</td>';
 						htmlString += '<td>'+item.num_images+'</td>';
-						htmlString += '<td><a href="/dan/lightboxe/'+item.id+'-'+item.name+'" class="show icon">g</a></td>';
+						htmlString += '<td><a href="/dan/lightboxe/'+item.id+'-'+encodeURIComponent(item.name)+'/" class="show icon">g</a></td>';
 						htmlString += "</tr>";
 						$('tbody',container).append(htmlString);
 					});
@@ -45,7 +45,7 @@ var lightbox = (function() {
 				},2000)
 				scope.updateList();
 			});
-			
+
 		},
 		getList: function(box,imageId) {
 			var scope = this;
@@ -96,6 +96,7 @@ var lightbox = (function() {
 		},
 		init: function() {
 			var scope = this;
+
 			$(".imgBox a[data-action='lightbox']").click(function() {
 				var _this = $(this);
 				var box = _this.parent().parent();
@@ -111,7 +112,7 @@ var lightbox = (function() {
 				}
 
 				return false;
-				
+
 			});
 
 			$("#lightboxName").blur(function() {
@@ -122,10 +123,11 @@ var lightbox = (function() {
 			});
 
 			$("#lightboxName").keypress(function(e) {
-				if(e.which == 13) { $(this).blur(); return false; } 
+				if(e.which == 13) { $(this).blur(); return false; }
 			});
 
 			$(".buttons a[data-action='lightbox']").click(function() {
+
 				var _this = $(this);
 				var box = _this.parent();
 				var imageid = _this.data('billedid');
@@ -133,19 +135,24 @@ var lightbox = (function() {
 				scope.getList(box,imageid);
 
 				return false;
-				
+
 			});
 
 			$("a[data-action=delete]").click(function() {
+
 				var listElm = $(this).parent().parent();
 				var lightboxId = listElm.parent().data('lightboxid');
 				var imageId = listElm.data('billedid');
-				listElm.css('background-color','#ED9DA7').fadeOut(1000,function() {
-					listElm.remove();
-				});
 
-				scope.deleteImage(lightboxId,imageId);
+				var conf = confirm('Er du sikker på at du vil slette billed: '+imageId+'?');
+				if(conf) {
+					listElm.css('background-color','#ED9DA7').fadeOut(1000,function() {
+						listElm.remove();
+					});
 
+					scope.deleteImage(lightboxId,imageId);
+				}
+				
 				return false;
 
 			});
