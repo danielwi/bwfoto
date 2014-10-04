@@ -375,17 +375,18 @@ var searchAutoComplete = (function() {
 					if( bogstaver.length > 2){
 						oldsearch = word
 						word = escape(word)
-						document.getElementById('keywordlayer').style.display = 'block';				
+						document.getElementById('keywordlayer').style.display = 'block';
 						getkeywordsframe = callIframe(getkeywordsframe, "noegleramme", "http://bwfoto.dk/php/GetKeywordsFrame.php?start=" + escape(word) + "&sprog="+lang+"&niveau=1&getterfunction=searchAutoComplete.getKey");
 						//getkeywordsframe = callIframe(getkeywordsframe, "noegleramme", "/ajax.htm?");
-						if(!getkeywordsframe){
-							alert("fejl ved hetning af keywords")
-						}
+
+						//if(!getkeywordsframe){
+						//	alert("fejl ved hetning af keywords")
+						//}
 					}
 					else{
 						oldsearch = '';
 						keyarray = [];
-						document.getElementById('keywordlayer').style.display = 'block';				
+						document.getElementById('keywordlayer').style.display = 'block';
 					}
 				}
 			}
@@ -407,7 +408,7 @@ var searchAutoComplete = (function() {
 		        offsetTop += offsetTrail.offsetTop;
 		        offsetTrail = offsetTrail.offsetParent;
 		    }
-		    if (navigator.userAgent.indexOf("Mac") != -1 && 
+		    if (navigator.userAgent.indexOf("Mac") != -1 &&
 		        typeof document.body.leftMargin != "undefined") {
 		        offsetLeft += document.body.leftMargin;
 		        offsetTop += document.body.topMargin;
@@ -418,8 +419,8 @@ var searchAutoComplete = (function() {
 			thelayer = document.getElementById('keywordlayer');
 			thelayer.style.display = 'none';
 			search = document.getElementById('search');
-			//thelayer.style.height = (keyarray.length*14)+"px";	
-			
+			//thelayer.style.height = (keyarray.length*14)+"px";
+
 			var html = "<div class='search-autocomplete-list'>";
 			html += "<ul>";
 			for(var i=0; i<keyarray.length; i++) {
@@ -435,7 +436,7 @@ var searchAutoComplete = (function() {
 
 
 			var html = "<TABLE align=\"left\" style=\"width:"+(search_width-2)+"px; font-family: verdana, serif; font-size: 12px;\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\">"
-			for( var i=0; i<keyarray.length; i++){	
+			for( var i=0; i<keyarray.length; i++){
 				var word = keyarray[i]
 				html += "<TR " + ( (selectedkey == i)?"style=\"color: #FFFFFF\" bgcolor=\"#0066FF\"":"bgcolor=\"#EEEEEE\"") + ">"
 				html += "<TD width=\"100%\" align=\"left\" onClick=\"document.searchform.search.value='" + word.replace(/'/, "\\'") + "'; document.searchform.submit();\" style=\"cursor:pointer; cursor:hand;" + ((selectedkey == i)?"color: #FFFFFF":"color: #000099") + "\">" + word + "<\/TD>"
@@ -444,22 +445,22 @@ var searchAutoComplete = (function() {
 			html += "<\/TABLE>"
 
 			*/
-			
+
 
 			if(selectedkey != -1){
-				document.getElementById('search').value = keyarray[selectedkey]				
-			}	
+				document.getElementById('search').value = keyarray[selectedkey]
+			}
 			//thelayer.innerHTML = ''
 			//thelayer.innerHTML = html
 			this.writit(html, thelayer);
 			thelayer.style.display = 'block'
 			ord = document.getElementById('search').value
 			document.getElementById('search').focus();
-			document.getElementById('search').value = ord;	
+			document.getElementById('search').value = ord;
 		},
 		hideAutocomplete: function() {
 			var thelayer = document.getElementById('keywordlayer');
-			thelayer.style.display = 'none'	
+			thelayer.style.display = 'none'
 		},
 		checkSearch: function() {
 			var string = new String( document.getElementById('search').value )
@@ -472,17 +473,17 @@ var searchAutoComplete = (function() {
 					var word = keyarray[selectedkey]
 					document.getElementById('search').value = word;
 				}
-				word = document.getElementById('search').value.toLowerCase();				
+				word = document.getElementById('search').value.toLowerCase();
 				word = word.replace(/\s*(,)\s*/g," ");
 				test = word.replace(/\bjanuar|februar|marts|april|maj|juni|juli|august|september|oktober|november|december\b/g,"");
 				test = test.replace(/\s*(,)\s*/g," ");
 				word = word.replace(/\s*(\x2B)\s*/g," ");
-				if(test == ''){				
+				if(test == ''){
 					alert('Der kan ikke søges på månedsnavne alene.\nDer kan dog søges på månedsnavn i kombination med et eller flere andre søgeord');
 					return false;
 				}
 				/*
-				maaneder = new RegExp("\bjanuar|februar|marts|april|maj|juni|juli|august|september|oktober|november|december\b", "g")				
+				maaneder = new RegExp("\bjanuar|februar|marts|april|maj|juni|juli|august|september|oktober|november|december\b", "g")
 				if(maaneder.test(word)){
 					if(!confirm("Et af de ord du vil søge efter er en måned\nDu kan ikke søge efter månedsnavne\nTryk OK for at søge uden månednavnet eller annuler for at rette søgningen til")){
 						return false;
@@ -520,7 +521,7 @@ var searchAutoComplete = (function() {
 		init: function() {
 			var scope = this;
 			var searchBox = $("#search");
-			
+
 			if(window.location.href.indexOf("/eng/") > -1) {
 				lang = "u";
 			} else {
@@ -545,4 +546,3 @@ var searchAutoComplete = (function() {
 	}
 
 })();
-		
